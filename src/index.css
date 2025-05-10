@@ -10,7 +10,6 @@
   background-color: #BAD7DF;
 }
 
-
 body {
   margin: 0;
 }
@@ -18,3 +17,8 @@ body {
 .outline-text {
   -webkit-text-stroke: 1px white;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
