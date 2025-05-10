@@ -7,11 +7,12 @@
 #root {
   width: 100vw;
   height: 100vh;
-  background-color: #BAD7DF;
+  background-color: #BAD7DF; /* light green background */
 }
 
 body {
   margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .outline-text {

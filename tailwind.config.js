@@ -4,9 +4,17 @@ export default {
   theme: {
     fontFamily: {
       sans: ["Poppins", "sans-serif"],
-      oswald: ["Oswald", "sans-serif"]
+      oswald: ["Oswald", "sans-serif"],
     },
     extend: {
+      colors: {
+        primary: "#BAD7DF",  // light green
+        secondary: "#FEE2E2", // light pink
+        tertiary: "#F6F6F6", // light blue
+        accent: "#8EC1D3", // light blue
+        lightGreen: "#A0D4C4", // lighter green
+        darkBlue: "#2C3E50", // dark blue for text
+      },
       fontSize: {
         "10xl": "10rem",
         "11xl": "11rem",
