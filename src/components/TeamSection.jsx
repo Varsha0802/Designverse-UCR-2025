@@ -8,7 +8,7 @@ const TeamSection = () => (
       <div className="flex flex-col items-center">
         <div className="w-32 h-32 rounded-full bg-[#F6F6F6]">
           <img
-            src="/images/varsha.jpg" // Image for Varsha from public/images
+            src="/images/varsha.png" // Image for Varsha from public/images
             alt="Varsha"
             className="w-full h-full object-cover rounded-full"
           />
@@ -21,7 +21,7 @@ const TeamSection = () => (
       <div className="flex flex-col items-center">
         <div className="w-32 h-32 rounded-full bg-[#F6F6F6]">
           <img
-            src="/images/katja.jpg" // Image for Katja from public/images
+            src="/images/katja.png" // Image for Katja from public/images
             alt="Katja"
             className="w-full h-full object-cover rounded-full"
           />
@@ -34,7 +34,7 @@ const TeamSection = () => (
       <div className="flex flex-col items-center">
         <div className="w-32 h-32 rounded-full bg-[#F6F6F6]">
           <img
-            src="/images/tracy.jpg" // Image for Tracy from public/images
+            src="/images/tracy.png" // Image for Tracy from public/images
             alt="Tracy"
             className="w-full h-full object-cover rounded-full"
           />
@@ -47,7 +47,7 @@ const TeamSection = () => (
       <div className="flex flex-col items-center">
         <div className="w-32 h-32 rounded-full bg-[#F6F6F6]">
           <img
-            src="/images/joan.jpg" // Image for Joan from public/images
+            src="/images/joan.png" // Image for Joan from public/images
             alt="Joan"
             className="w-full h-full object-cover rounded-full"
           />
