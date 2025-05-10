@@ -4,6 +4,7 @@ export default {
   theme: {
     fontFamily: {
       sans: ["Poppins", "sans-serif"],
+      oswald: ["Oswald", "sans-serif"]
     },
     extend: {
       fontSize: {

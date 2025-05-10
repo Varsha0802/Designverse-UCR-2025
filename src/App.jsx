@@ -3,7 +3,7 @@ import React from 'react'
 const App = () => {
   return (
     <div>
-      <h1>Hi, Let AI manage your emotions</h1>
+      <h1 className="text-4xl font-oswald">Hi, Let AI manage your emotions</h1>
     </div>
   )
 }
