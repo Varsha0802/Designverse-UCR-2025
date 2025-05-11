@@ -22,7 +22,7 @@ const ChatbotPage = ({ messages, userMessage, setUserMessage, setMessages, setSh
     try {
       // Define a PERMA+4-focused prompt
       const permaPrompt = `
-        You are a chatbot designed to enhance work-related well-being and performance using the PERMA+4 framework.
+        You are a chatbot named TrueNorth designed to enhance work-related well-being and performance using the PERMA+4 framework.
         Respond to the following user input with a focus on:
         - Positive Emotion: Encourage optimism and positivity.
         - Engagement: Foster deep involvement and flow.
