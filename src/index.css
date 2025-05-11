@@ -24,17 +24,22 @@ html {
 
 /* Blob-style Amoeba Clip Paths */
 /* Square with rounded edges */
-.square-rounded1 {
-  border-radius: 16px; /* You can adjust this for more or less roundness */
+/* For the rounded square images */
+/* For the rounded square images */
+.square-rounded {
+  border-radius: 12px;  /* Adjust roundness */
+  overflow: hidden;  /* Hide anything that exceeds the rounded container */
 }
 
-.square-rounded2 {
-  border-radius: 16px;
+.w-32 {
+  width: 8rem;  /* Adjust width for larger images */
 }
 
-.square-rounded3 {
-  border-radius: 16px;
+.h-32 {
+  height: 8rem;  /* Adjust height to match the width */
 }
+
+
 
 
 
