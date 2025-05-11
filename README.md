@@ -2,6 +2,11 @@
 
 TrueNorth is an AI-powered chatbot designed to guide users toward better well-being and performance at work. Built with the PERMA+4 framework, TrueNorth offers personalized, friendly, and psychologically grounded responses to help individuals thrive in their professional lives.
 
+## 🎥 Demo
+
+Here's a quick preview of the chatbot interface:
+
+![Demo](video/demo.gif)
 
 
 ## ✨ Features
@@ -47,13 +52,13 @@ yarn dev
 Visit: http://localhost:5173
 
 ## 👩‍💻 Team
-- **varsha.shetty@cgu.edu**
+- varsha.shetty@cgu.edu
 
-- ** katja.crusius@cgu.edu**
+- katja.crusius@cgu.edu
 
-- ** joan.zheng@cgu.edu**
+- joan.zheng@cgu.edu
 
-- ** sonia.baron@cgu.edu**
+- sonia.baron@cgu.edu
 
 ## 📜 License
 MIT License © 2025 TrueNorth Team
