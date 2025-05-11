@@ -38,7 +38,7 @@ const App = () => {
             messages={messages}
             userMessage={userMessage}
             setUserMessage={setUserMessage}
-            handleSendMessage={handleSendMessage}
+            setMessages={setMessages}
             setShowChatbot={setShowChatbot}
           />
         ) : (
