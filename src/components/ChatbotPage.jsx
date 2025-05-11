@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { GoogleGenAI } from '@google/genai';
+import DOMPurify from 'dompurify';
+import ReactMarkdown from 'react-markdown';
 
 
 const ChatbotPage = ({ messages, userMessage, setUserMessage, setMessages, setShowChatbot }) => {
@@ -107,7 +109,11 @@ const ChatbotPage = ({ messages, userMessage, setUserMessage, setMessages, setSh
                     : 'bg-[#F6F6F6] text-[#2C3E50]'
                 }`}
               >
-                {message.text}
+                {message.type === 'bot' ? (
+                  <ReactMarkdown>{DOMPurify.sanitize(message.text)}</ReactMarkdown>
+                ) : (
+                  message.text
+                )}
               </div>
             </div>
           ))}
