@@ -47,13 +47,13 @@ yarn dev
 Visit: http://localhost:5173
 
 ## 👩‍💻 Team
-- ** varsha.shetty@cgu.edu
+- **varsha.shetty@cgu.edu**
 
-- ** katja.crusius@cgu.edu
+- ** katja.crusius@cgu.edu**
 
-- ** joan.zheng@cgu.edu
+- ** joan.zheng@cgu.edu**
 
-- ** sonia.baron@cgu.edu
+- ** sonia.baron@cgu.edu**
 
 ## 📜 License
 MIT License © 2025 TrueNorth Team
