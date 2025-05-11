@@ -7,6 +7,7 @@ import MissionSection from './components/MissionSection';
 import ContactSection from './components/ContactSection';
 import LoadingScreen from './components/LoadingScreen';
 import ModelInfo from './components/PermaModel';
+import PerformanceSection from './components/Performance';
 
 const App = () => {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -59,6 +60,7 @@ const App = () => {
             <TeamSection />
             <MissionSection />
             <ModelInfo />
+            <PerformanceSection />
             <ContactSection />
           </>
         )}
