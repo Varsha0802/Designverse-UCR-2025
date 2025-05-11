@@ -2,7 +2,7 @@ import React from 'react';
 
 const PerformanceSection = () => (
   <section
-    id="contact"
+    id="performance"
     className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#DFFFE2] to-[#E2F7FF] px-4 pt-12 pb-16"
   >
     <h2 className="text-4xl font-bold bg-gradient-to-r from-[#527141] via-[#77a361] to-[#527141] bg-clip-text text-transparent mb-8">
