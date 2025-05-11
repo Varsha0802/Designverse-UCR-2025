@@ -10,26 +10,43 @@ const ChatbotPage = ({ messages, userMessage, setUserMessage, setMessages, setSh
 
   const handleSendMessage = async () => {
     if (userMessage.trim() === '') return;
-
+  
     // Add user message to the chat
     const newMessage = { text: userMessage, type: 'user' };
     setMessages((prev) => [...prev, newMessage]);
     setUserMessage('');
-
+  
     // Show loading indicator
     setIsLoading(true);
-
+  
     try {
+      // Define a PERMA+4-focused prompt
+      const permaPrompt = `
+        You are a chatbot designed to enhance work-related well-being and performance using the PERMA+4 framework.
+        Respond to the following user input with a focus on:
+        - Positive Emotion: Encourage optimism and positivity.
+        - Engagement: Foster deep involvement and flow.
+        - Relationships: Promote collaboration and connection.
+        - Meaning: Highlight purpose and significance.
+        - Accomplishment: Encourage goal-setting and achievement.
+        - Physical Health: Suggest healthy habits.
+        - Mindset: Encourage a growth mindset.
+        - Environment: Promote a supportive and productive environment.
+        - Economic Security: Provide advice on financial stability if relevant.
+  
+        User Input: "${userMessage}"
+      `;
+  
       // Generate response using Gemini API
       const response = await ai.models.generateContent({
-        model: 'gemini-2.0-flash',
-        contents: userMessage,
+        model: 'gemini-2.0-flash', // Replace with an available model if needed
+        contents: permaPrompt,
         config: {
-          maxOutputTokens: 100,
+          maxOutputTokens: 200,
           temperature: 0.7,
         },
       });
-
+  
       // Add bot response to the chat
       if (response.text) {
         setMessages((prev) => [...prev, { text: response.text, type: 'bot' }]);
