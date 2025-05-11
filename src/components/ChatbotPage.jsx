@@ -1,55 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
 import DOMPurify from 'dompurify';
 import ReactMarkdown from 'react-markdown';
 
-
 const ChatbotPage = ({ messages, userMessage, setUserMessage, setMessages, setShowChatbot }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const bottomRef = useRef(null);
 
-  // Initialize Gemini API
   const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
   const handleSendMessage = async () => {
     if (userMessage.trim() === '') return;
-  
-    // Add user message to the chat
+
     const newMessage = { text: userMessage, type: 'user' };
     setMessages((prev) => [...prev, newMessage]);
     setUserMessage('');
-  
-    // Show loading indicator
     setIsLoading(true);
-  
+
     try {
-      // Define a PERMA+4-focused prompt
       const permaPrompt = `
-        You are a chatbot named TrueNorth designed to enhance work-related well-being and performance using the PERMA+4 framework.
+        You are a chatbot named TrueNorth designed to enhance work-related well-being and performance using the PERMA+4 framework. Use emojis and a friendly tone to engage users. Your goal is to provide positive, meaningful, and actionable responses that promote well-being in the workplace. Please keep the response short. 
         Respond to the following user input with a focus on:
-        - Positive Emotion: Encourage optimism and positivity.
-        - Engagement: Foster deep involvement and flow.
-        - Relationships: Promote collaboration and connection.
-        - Meaning: Highlight purpose and significance.
-        - Accomplishment: Encourage goal-setting and achievement.
-        - Physical Health: Suggest healthy habits.
-        - Mindset: Encourage a growth mindset.
-        - Environment: Promote a supportive and productive environment.
-        - Economic Security: Provide advice on financial stability if relevant.
-  
+        - Positive Emotion
+        - Engagement
+        - Relationships
+        - Meaning
+        - Accomplishment
+        - Physical Health
+        - Mindset
+        - Environment
+        - Economic Security
+
         User Input: "${userMessage}"
       `;
-  
-      // Generate response using Gemini API
+
       const response = await ai.models.generateContent({
-        model: 'gemini-2.0-flash', // Replace with an available model if needed
+        model: 'gemini-2.0-flash',
         contents: permaPrompt,
         config: {
-          maxOutputTokens: 200,
+          maxOutputTokens: 800,
           temperature: 0.7,
         },
       });
-  
-      // Add bot response to the chat
+
       if (response.text) {
         setMessages((prev) => [...prev, { text: response.text, type: 'bot' }]);
       } else {
@@ -69,80 +62,81 @@ const ChatbotPage = ({ messages, userMessage, setUserMessage, setMessages, setSh
     }
   };
 
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, isLoading]);
+
   return (
-    <div className="relative min-h-screen">
-      {/* Video Background */}
-      <div className="absolute top-0 left-0 w-full h-full z-0">
-        <video
-          src="/videos/chatbot.mp4" // Update with your actual video file path
-          type="video/mp4"
-          autoPlay
-          loop
-          muted
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Chatbot UI Container */}
-      <div className="relative z-10 p-6 max-w-2xl mx-auto bg-white bg-opacity-80 rounded-lg shadow-xl">
-        {/* Back to Home button */}
-        <button
+    <div className="min-h-screen bg-gradient-to-br from-[#FDE2E2] via-[#FFF8E7] to-[#E0F7FA] flex flex-col">
+      {/* Navbar */}
+      <header className="bg-white/80 shadow-sm backdrop-blur-md fixed top-0 w-full z-10 px-6 py-4 flex items-center justify-between">
+        <h1
+          className="text-2xl font-bold text-[#2C3E50] cursor-pointer"
           onClick={() => setShowChatbot(false)}
-          className="text-[#FEE2E2] underline mb-4"
         >
-          ← Home
-        </button>
+          TrueNorth
+        </h1>
+      </header>
 
-        <h2 className="text-3xl font-bold text-[#2C3E50] mb-4">Chat with Us</h2>
+      {/* Spacer for navbar */}
+      <div className="h-20"></div>
 
-        {/* Chat conversation area */}
-        <div className="mt-6 p-4 border-2 border-[#E4E8F0] rounded-lg h-80 overflow-y-auto bg-[#FEE2E2] space-y-4">
-          {messages.map((message, index) => (
+      {/* Chat Content */}
+      <div className="flex-1 flex flex-col items-center px-4 overflow-y-auto">
+        <div className="w-full max-w-3xl flex flex-col justify-between space-y-4 py-4">
+          {messages.map((msg, index) => (
             <div
               key={index}
-              className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
+              className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div
-                className={`inline-block p-3 rounded-lg max-w-xs ${
-                  message.type === 'user'
-                    ? 'bg-[#99DDCC] text-white'
-                    : 'bg-[#F6F6F6] text-[#2C3E50]'
-                }`}
+                className={`text-sm p-4 shadow-md ${
+                  msg.type === 'user' ? 'bg-white/70' : 'bg-[#D9B9FD]'
+                } text-[#2C3E50] max-w-xl rounded-md whitespace-pre-line`}
               >
-                {message.type === 'bot' ? (
-                  <ReactMarkdown>{DOMPurify.sanitize(message.text)}</ReactMarkdown>
+                {msg.type === 'bot' ? (
+                  <ReactMarkdown>{DOMPurify.sanitize(msg.text)}</ReactMarkdown>
                 ) : (
-                  message.text
+                  msg.text
                 )}
               </div>
             </div>
           ))}
+
           {isLoading && (
-            <div className="flex justify-start">
-              <div className="inline-block p-3 rounded-lg max-w-xs bg-[#F6F6F6] text-[#2C3E50]">
-                Typing...
-              </div>
+            <div className="text-sm p-4 bg-white/70 shadow text-[#2C3E50] max-w-xl rounded-md">
+              TrueNorth is thinking...
             </div>
           )}
-        </div>
 
-        {/* Message input */}
-        <div className="mt-4 flex">
+          <div ref={bottomRef} />
+        </div>
+      </div>
+
+      {/* Input Section */}
+      <div className="w-full max-w-3xl mx-auto px-4 pb-6">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSendMessage();
+          }}
+          className="flex space-x-2"
+        >
           <input
             type="text"
-            className="p-3 w-full border-2 border-[#E4E8F0] rounded-lg"
-            placeholder="Type your message..."
             value={userMessage}
             onChange={(e) => setUserMessage(e.target.value)}
+            className="flex-1 rounded-lg p-3 border border-gray-300 bg-white/70 text-gray-700 placeholder:text-gray-500 focus:outline-none"
+            placeholder="Type your message..."
           />
           <button
-            onClick={handleSendMessage}
-            className="ml-2 bg-[#BAD7DF] text-white px-6 py-3 rounded-lg hover:bg-[#99DDCC] transition"
+            type="submit"
             disabled={isLoading}
+            className="bg-[#BAD7DF] hover:bg-[#99DDCC] text-white px-4 py-2 rounded-lg"
           >
-            {isLoading ? 'Sending...' : 'Send'}
+            {isLoading ? '...' : 'Send'}
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

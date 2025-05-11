@@ -1,10 +1,14 @@
 import React from 'react';
 
 const Navbar = ({ showChatbot, setShowChatbot }) => (
-
   <header className="fixed top-0 left-0 w-full h-16 bg-[#FFE5B4]/30 backdrop-blur-md flex justify-between items-center px-8 shadow-md z-50 text-[#2C3E50]">
-    {/* Logo */}
-    <div className="text-2xl font-semibold">TrueNorth</div>
+    {/* Logo link to homepage */}
+    <a
+      href="/"
+      className="text-2xl font-semibold "
+    >
+      TrueNorth
+    </a>
 
     {/* Navigation */}
     {!showChatbot && (

@@ -15,7 +15,7 @@ const App = () => {
 
   // ✅ Loading effect moved to proper location
   useEffect(() => {
-    const timeout = setTimeout(() => setIsLoading(false), 3000); // show loading for 4s
+    const timeout = setTimeout(() => setIsLoading(false), 1000); // show loading for 4s
     return () => clearTimeout(timeout);
   }, []);
 
