@@ -3,7 +3,6 @@
 TrueNorth is an AI-powered chatbot designed to guide users toward better well-being and performance at work. Built with the PERMA+4 framework, TrueNorth offers personalized, friendly, and psychologically grounded responses to help individuals thrive in their professional lives.
 
 
----
 
 ## ✨ Features
 
@@ -13,8 +12,6 @@ TrueNorth is an AI-powered chatbot designed to guide users toward better well-be
 - 📹 Animated video background with smooth gradients
 - 🧼 Clean UI with pastel aesthetics and responsive layout
 
----
-
 ## 📚 Tech Stack
 
 - **Frontend**: React.js + Tailwind CSS
@@ -22,7 +19,6 @@ TrueNorth is an AI-powered chatbot designed to guide users toward better well-be
 - **Markdown Rendering**: `react-markdown` + `dompurify`
 - **Visuals**: Figma, Spline, and custom gradient videos
 
----
 
 ## 🚀 Getting Started
 
@@ -31,3 +27,9 @@ TrueNorth is an AI-powered chatbot designed to guide users toward better well-be
 ```bash
 git clone https://github.com/your-username/truenorth-chatbot.git
 cd truenorth-chatbot
+```
+
+### 2. Install dependencies
+```bash
+yarn install
+```
