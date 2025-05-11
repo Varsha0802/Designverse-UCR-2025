@@ -12,40 +12,42 @@ const ContactSection = () => (
 
     <div className="bg-white shadow-xl rounded-2xl p-8 max-w-md w-full text-center transform hover:scale-105 transition duration-300">
       <div className="flex flex-col items-center space-y-6 text-[#2C3E50] text-lg">
-        {/* Varsha's Contact */}
-        <div className="flex flex-col items-start space-y-2">
-          <div className="flex items-center gap-4">
-            <FaEnvelope className="text-[#FD91F5]" />
-            <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
-              varsha.shetty@cgu.edu
-            </p>
-          </div>
+        {/* Varsha */}
+        <div className="flex items-center gap-4">
+          <FaEnvelope className="text-[#FD91F5]" />
+          <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
+            varsha.shetty@cgu.edu
+          </p>
         </div>
 
-        {/* Katja's Contact */}
-        <div className="flex flex-col items-start space-y-2">
-          <div className="flex items-center gap-4">
-            <FaEnvelope className="text-[#FD91F5]" />
-            <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
-              katja.crusius@cgu.edu
-            </p>
-          </div>
+        {/* Katja */}
+        <div className="flex items-center gap-4">
+          <FaEnvelope className="text-[#FD91F5]" />
+          <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
+            katja.crusius@cgu.edu
+          </p>
         </div>
 
-        {/* Tracy's Contact */}
-        <div className="flex flex-col items-start space-y-2">
-          <div className="flex items-center gap-4">
-            <FaEnvelope className="text-[#FD91F5]" />
-            <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
-              tracy.gaolese@cgu.edu
-            </p>
-          </div>
+        {/* Joan */}
+        <div className="flex items-center gap-4">
+          <FaEnvelope className="text-[#FD91F5]" />
+          <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
+            joan.zheng@cgu.edu
+          </p>
+        </div>
+
+        {/* Sonia */}
+        <div className="flex items-center gap-4">
+          <FaEnvelope className="text-[#FD91F5]" />
+          <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
+            sonia.baron@cgu.edu
+          </p>
         </div>
       </div>
 
       {/* LinkedIn Buttons */}
       <div className="mt-6">
-        {/* Varsha's LinkedIn */}
+        {/* Varsha */}
         <a
           href="https://www.linkedin.com/in/varshashetty08/"
           target="_blank"
@@ -56,7 +58,7 @@ const ContactSection = () => (
           Connect with Varsha on LinkedIn
         </a>
 
-        {/* Katja's LinkedIn */}
+        {/* Katja */}
         <a
           href="https://www.linkedin.com/in/katjacrusius/"
           target="_blank"
@@ -67,19 +69,19 @@ const ContactSection = () => (
           Connect with Katja on LinkedIn
         </a>
 
-        {/* Tracy's LinkedIn */}
+        {/* Joan */}
         <a
-          href="https://www.linkedin.com/in/tracy-gaolese-ba1b77249/"
+          href="https://www.linkedin.com/in/joanpz/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-6 py-2 bg-[#FD91F5] text-white rounded-full hover:bg-[#b74deb] transition"
         >
           <FaPaperPlane />
-          Connect with Tracy on LinkedIn
+          Connect with Joan on LinkedIn
         </a>
       </div>
 
-      {/* Shared Contact Information: Phone and Address */}
+      {/* Shared Contact Info */}
       <div className="mt-8">
         <div className="flex items-center gap-4 justify-center">
           <FaPhone className="text-[#84CFFF]" />
