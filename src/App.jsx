@@ -6,6 +6,7 @@ import TeamSection from './components/TeamSection';
 import MissionSection from './components/MissionSection';
 import ContactSection from './components/ContactSection';
 import LoadingScreen from './components/LoadingScreen';
+import ModelInfo from './components/PermaModel';
 
 const App = () => {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -57,6 +58,7 @@ const App = () => {
             <LandingPage setShowChatbot={setShowChatbot} />
             <TeamSection />
             <MissionSection />
+            <ModelInfo />
             <ContactSection />
           </>
         )}
