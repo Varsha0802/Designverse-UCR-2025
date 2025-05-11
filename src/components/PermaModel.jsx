@@ -3,7 +3,7 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/f
 
 const ModelInfo = () => (
   <section
-    id="contact"
+    id="perma"
     className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#fbeeda] to-[#BAD7DF] p-10"
   >
     <h2 className="text-4xl font-bold bg-gradient-to-r from-[#84CFFF] via-[#FD91F5] to-[#FF8E9E] bg-clip-text text-transparent mb-8">

@@ -4,17 +4,17 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/f
 const ContactSection = () => (
   <section
     id="contact"
-    className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#fbeeda] to-[#BAD7DF] p-10"
+    className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#fbeeda] to-[#BAD7DF] p-9"
   >
     <h2 className="text-4xl font-bold bg-gradient-to-r from-[#84CFFF] via-[#FD91F5] to-[#FF8E9E] bg-clip-text text-transparent mb-8">
       Get in Touch
     </h2>
 
-    <div className="bg-white shadow-xl rounded-2xl p-8 max-w-md w-full text-center transform hover:scale-105 transition duration-300">
+    <div className="bg-white shadow-xl rounded-l-l p-8 max-w-md w-full text-center transform hover:scale-105 transition duration-300">
       <div className="flex flex-col items-center space-y-6 text-[#2C3E50] text-lg">
         {/* Varsha */}
         <div className="flex items-center gap-4">
-          <FaEnvelope className="text-[#FD91F5]" />
+          <FaEnvelope className="text-[#F09ED7]" />
           <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
             varsha.shetty@cgu.edu
           </p>
@@ -22,7 +22,7 @@ const ContactSection = () => (
 
         {/* Katja */}
         <div className="flex items-center gap-4">
-          <FaEnvelope className="text-[#FD91F5]" />
+          <FaEnvelope className="text-[#F09ED7]" />
           <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
             katja.crusius@cgu.edu
           </p>
@@ -30,7 +30,7 @@ const ContactSection = () => (
 
         {/* Joan */}
         <div className="flex items-center gap-4">
-          <FaEnvelope className="text-[#FD91F5]" />
+          <FaEnvelope className="text-[#F09ED7]" />
           <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
             joan.zheng@cgu.edu
           </p>
