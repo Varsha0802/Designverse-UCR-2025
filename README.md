@@ -6,7 +6,7 @@ TrueNorth is an AI-powered chatbot designed to guide users toward better well-be
 
 Here's a quick preview of the chatbot interface:
 
-![Demo](https://imgur.com/a/8a9A2LM)
+![Demo](https://github.com/Varsha0802/Designverse-UCR-2025/blob/main/public/video/demo.gif)
 
 
 
