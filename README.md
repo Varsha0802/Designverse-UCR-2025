@@ -10,6 +10,9 @@ Here's a quick preview of the chatbot interface:
 
 ![Demo](https://github.com/Varsha0802/Designverse-UCR-2025/blob/main/public/video/chat.gif)
 
+<h3>🚀 Demo</h3>
+<p>Here's a quick preview of the chatbot interface:</p>
+<img src="https://github.com/Varsha0802/Designverse-UCR-2025/blob/main/public/video/demo.gif?raw=true" width="700"/>
 
 
 ## ✨ Features
