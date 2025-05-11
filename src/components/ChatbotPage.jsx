@@ -2,24 +2,47 @@ import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
 import DOMPurify from 'dompurify';
 import ReactMarkdown from 'react-markdown';
+import axios from 'axios';
 
-const ChatbotPage = ({ messages, userMessage, setUserMessage, setMessages, setShowChatbot }) => {
+const ChatbotPage = ({ setShowChatbot }) => {
+  const [messages, setMessages] = useState([]); // Ensure messages is initialized as an array
+  const [userMessage, setUserMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const bottomRef = useRef(null);
 
   const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
-  const handleSendMessage = async () => {
-    if (userMessage.trim() === '') return;
-
-    const newMessage = { text: userMessage, type: 'user' };
-    setMessages((prev) => [...prev, newMessage]);
-    setUserMessage('');
-    setIsLoading(true);
-
-    try {
-      const permaPrompt = `
-        You are a chatbot named TrueNorth designed to enhance work-related well-being and performance using the PERMA+4 framework. Use emojis and a friendly tone to engage users. Your goal is to provide positive, meaningful, and actionable responses that promote well-being in the workplace. Please keep the response short. 
+  // Fetch last 5 interactions from MongoDB
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/chat/last5'); // Use full URL
+        if (Array.isArray(response.data)) {
+          setMessages(response.data);
+        } else {
+          console.error('Unexpected response format:', response.data);
+          setMessages([]); // Fallback to an empty array
+        }
+      } catch (error) {
+        console.error('Error fetching messages:', error);
+        setMessages([]); // Fallback to an empty array
+      }
+    };
+  
+    fetchMessages();
+  }, []);
+  
+    const handleSendMessage = async () => {
+      if (userMessage.trim() === '') return;
+    
+      const newMessage = { text: userMessage, type: 'user' };
+      setMessages((prev) => [...prev, newMessage]);
+      setUserMessage('');
+      setIsLoading(true);
+    
+      try {
+        const permaPrompt = `
+        You are a chatbot named TrueNorth designed to enhance work-related well-being and performance using the PERMA+4 framework. Use emojis and a friendly tone to engage users. Your goal is to provide positive, meaningful, and actionable responses that promote well-being in the workplace. Please keep the response concise and humanlike. 
         Respond to the following user input with a focus on:
         - Positive Emotion
         - Engagement
@@ -42,20 +65,20 @@ const ChatbotPage = ({ messages, userMessage, setUserMessage, setMessages, setSh
           temperature: 0.7,
         },
       });
-
-      if (response.text) {
-        setMessages((prev) => [...prev, { text: response.text, type: 'bot' }]);
-      } else {
-        setMessages((prev) => [
-          ...prev,
-          { text: 'Sorry, I could not process your request.', type: 'bot' },
-        ]);
-      }
+  
+      const botMessage = response.text || 'Sorry, I could not process your request.';
+      setMessages((prev) => [...prev, { text: botMessage, type: 'bot' }]);
+  
+      // Save interaction to MongoDB
+      await axios.post('http://localhost:5000/api/chat', {
+        userMessage,
+        botMessage,
+      });
     } catch (error) {
       console.error('Error generating response:', error);
       setMessages((prev) => [
         ...prev,
-        { text: 'An error occurred. Please try again later.', type: 'bot' },
+        // { text: 'An error occurred. Please try again later.', type: 'bot' },
       ]);
     } finally {
       setIsLoading(false);
@@ -84,7 +107,7 @@ const ChatbotPage = ({ messages, userMessage, setUserMessage, setMessages, setSh
       {/* Chat Content */}
       <div className="flex-1 flex flex-col items-center px-4 overflow-y-auto">
         <div className="w-full max-w-3xl flex flex-col justify-between space-y-4 py-4">
-          {messages.map((msg, index) => (
+          {Array.isArray(messages) && messages.map((msg, index) => (
             <div
               key={index}
               className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}

@@ -45,9 +45,14 @@ yarn install
 VITE_GEMINI_API_KEY=your-google-genai-api-key
 ```
 
-### 4. Run the development server
+### 4. Run the backend databse server
 ```bash
-yarn dev
+node server.js
+```
+
+### 5. Run the backend databse server
+```bash
+npm run dev
 ```
 
 Visit: http://localhost:5173
