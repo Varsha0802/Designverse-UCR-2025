@@ -33,3 +33,15 @@ cd truenorth-chatbot
 ```bash
 yarn install
 ```
+
+### 3. Set up environment variables
+```bash
+VITE_GEMINI_API_KEY=your-google-genai-api-key
+```
+
+### 4. Run the development server
+```bash
+yarn dev
+```
+
+Visit: http://localhost:5173
