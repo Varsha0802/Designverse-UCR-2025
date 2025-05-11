@@ -1,12 +1,95 @@
 import React from 'react';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
 
 const ContactSection = () => (
-  <section id="contact" className="h-screen flex flex-col items-center justify-center bg-[#F6F6F6] p-6 rounded-lg shadow-lg">
-    <h2 className="text-3xl font-semibold text-[#2C3E50]">Contact Us</h2>
-    <div className="mt-6 text-center text-[#2C3E50]">
-      <p>Email: info@truenorth.com</p>
-      <p>Phone: (123) 456-7890</p>
-      <p>Address: 123 TrueNorth St, City, Country</p>
+  <section
+    id="contact"
+    className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#fbeeda] to-[#BAD7DF] p-10"
+  >
+    <h2 className="text-4xl font-bold bg-gradient-to-r from-[#84CFFF] via-[#FD91F5] to-[#FF8E9E] bg-clip-text text-transparent mb-8">
+      Get in Touch
+    </h2>
+
+    <div className="bg-white shadow-xl rounded-2xl p-8 max-w-md w-full text-center transform hover:scale-105 transition duration-300">
+      <div className="flex flex-col items-center space-y-6 text-[#2C3E50] text-lg">
+        {/* Varsha's Contact */}
+        <div className="flex flex-col items-start space-y-2">
+          <div className="flex items-center gap-4">
+            <FaEnvelope className="text-[#FD91F5]" />
+            <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
+              varsha.shetty@cgu.edu
+            </p>
+          </div>
+        </div>
+
+        {/* Katja's Contact */}
+        <div className="flex flex-col items-start space-y-2">
+          <div className="flex items-center gap-4">
+            <FaEnvelope className="text-[#FD91F5]" />
+            <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
+              katja.crusius@cgu.edu
+            </p>
+          </div>
+        </div>
+
+        {/* Tracy's Contact */}
+        <div className="flex flex-col items-start space-y-2">
+          <div className="flex items-center gap-4">
+            <FaEnvelope className="text-[#FD91F5]" />
+            <p className="cursor-pointer select-all hover:text-[#b74deb] transition">
+              tracy.gaolese@cgu.edu
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* LinkedIn Buttons */}
+      <div className="mt-6">
+        {/* Varsha's LinkedIn */}
+        <a
+          href="https://www.linkedin.com/in/varshashetty08/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-6 py-2 bg-[#FD91F5] text-white rounded-full hover:bg-[#b74deb] transition mb-4"
+        >
+          <FaPaperPlane />
+          Connect with Varsha on LinkedIn
+        </a>
+
+        {/* Katja's LinkedIn */}
+        <a
+          href="https://www.linkedin.com/in/katjacrusius/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-6 py-2 bg-[#FD91F5] text-white rounded-full hover:bg-[#b74deb] transition mb-4"
+        >
+          <FaPaperPlane />
+          Connect with Katja on LinkedIn
+        </a>
+
+        {/* Tracy's LinkedIn */}
+        <a
+          href="https://www.linkedin.com/in/tracy-gaolese-ba1b77249/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-6 py-2 bg-[#FD91F5] text-white rounded-full hover:bg-[#b74deb] transition"
+        >
+          <FaPaperPlane />
+          Connect with Tracy on LinkedIn
+        </a>
+      </div>
+
+      {/* Shared Contact Information: Phone and Address */}
+      <div className="mt-8">
+        <div className="flex items-center gap-4 justify-center">
+          <FaPhone className="text-[#84CFFF]" />
+          <p>(605) 475-6961</p>
+        </div>
+        <div className="flex items-center gap-4 justify-center mt-4">
+          <FaMapMarkerAlt className="text-[#FF8E9E]" />
+          <p>150 E 10th St, Claremont, CA 91711</p>
+        </div>
+      </div>
     </div>
   </section>
 );

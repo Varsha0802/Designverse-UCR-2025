@@ -3,7 +3,11 @@ import '../index.css'; // Ensure this imports the CSS with clip-paths
 
 const TeamSection = () => (
   <section id="team" className="min-h-screen flex flex-col items-center justify-center bg-[#FBEEDA] p-6 rounded-lg shadow-lg">
-    <h2 className="text-3xl font-semibold text-[#2C3E50]">Meet the Team</h2>
+<h2
+  className="text-3xl font-semibold bg-gradient-to-r from-[#84CFFF] via-[#FD91F5] to-[#FF8E9E] bg-clip-text text-transparent"
+>
+  Meet the Team
+</h2>
     <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {/* Varsha */}
       <div className="flex flex-col items-center">
@@ -46,10 +50,24 @@ const TeamSection = () => (
     </div>
 
     {/* Centered text for education */}
-    <div className="mt-8 text-center text-[#2C3E50]">
-      <p className="text-xl font-semibold">Center for Information Systems & Technology</p>
-      <p className="mt-2 text-xl font-semibold">Claremont Graduate University</p>
-    </div>
+{/* Centered text for education */}
+<div className="mt-8 text-center">
+  <p
+    className="text-1xl font-semibold text-[#2C3E50]"
+    style={{ fontFamily: "'Gasoek One', sans-serif" }}
+  >
+    Center for Information Systems & Technology
+  </p>
+  <p
+    className="mt-2 text-2xl font-semibold text-[#2C3E50]"
+    style={{ fontFamily: "'Gasoek One', sans-serif" }}
+  >
+    Claremont Graduate University
+  </p>
+</div>
+
+
+
   </section>
 );
 
