@@ -22,3 +22,21 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Blob-style Amoeba Clip Paths */
+/* Square with rounded edges */
+.square-rounded1 {
+  border-radius: 16px; /* You can adjust this for more or less roundness */
+}
+
+.square-rounded2 {
+  border-radius: 16px;
+}
+
+.square-rounded3 {
+  border-radius: 16px;
+}
+
+
+
+
+
